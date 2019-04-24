@@ -1,0 +1,19 @@
+/* UI views */
+#UI_nav{
+    height: calc(50px);
+}
+#UI_content{
+    height: calc(100vh - 50px);
+}
+#UI_content .row{
+    height: 100%;
+}
+#UI_sidebar{
+    height: 100%;
+    background-color: lightgray;
+    overflow-y: scroll;
+}
+#UI_main{
+    height: 100%;
+    overflow-y: scroll;
+}

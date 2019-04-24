@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/views.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/sections.css">
+
+    <title>NHMU Mixed Reality</title>
+  </head>
+  <body>
+    <nav id="UI_nav" class="navbar navbar-dark bg-dark">
+      <!-- Navbar content -->
+        <h6 class="text-white m-0">NHMU Mixed Reality Project | Documentation</h6>
+    </nav>
+    <div id="UI_content" class="container-fluid">
+        <div class="row">
+            <div id="UI_sidebar" class="col-2">
+                <h6 class="mt-3">ABOUT</h6>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><a id="link_home" href="#">Home</a></li>
+                  <li class="list-group-item"><a id="link_overview" href="#">Overview</a></li>
+                  <li class="list-group-item"><a id="link_people" href="#">People</a></li>
+                  <li class="list-group-item"><a id="link_acknowledgements" href="#">Acknowledgements</a></li>
+                </ul>
+                <h6 class="mt-3">VIRTUAL</h6>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><a id="link_vr_setup" href="#">Setting Up a Project</a></li>
+                  <li class="list-group-item"><a id="link_vr_toolkit" href="#">MR Toolkit</a></li>
+                  <li class="list-group-item"><a id="link_vr_model" href="#">3D Models</a></li>
+                  <li class="list-group-item"><a id="link_vr_boundingbox" href="#">Bounding Box</a></li>
+                  <li class="list-group-item"><a id="link_vr_loginteractions" href="#">Scripts</a></li>
+                </ul>
+                <h6 class="mt-3">TANGIBLE</h6>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Coming soon</li>
+                </ul>
+            </div>
+            <div id="UI_main" class="col-10 p-0">
+                <div id="sections_about" class="container-fluid d-none">
+                    <div id="section_home" class="d-none row justify-content-center align-items-center">
+                        <div class="col-4">
+                            <h5>Getting Started with Mixed Reality Models</h5>
+                            <p>Learn more about the development of mixed reality 3D models of dinosaur fossils. Create smart models in tangible and virtual forms infused with artificial intelligence capabilities.</p>
+                            <button id="btn_home" type="button" class="btn btn-secondary">GET STARTED</button>
+                        </div>
+                        <div class="col-5">
+                            <a title="Microsoft Sweden [CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:HoloLens_2.jpeg"><img width="100%" height="auto" alt="HoloLens 2" src="https://upload.wikimedia.org/wikipedia/commons/7/7f/HoloLens_2.jpeg"></a>
+                        </div>
+                    </div>
+                    <div id="section_overview" class="d-none row justify-content-center align-items-center">
+                        <div class="col-auto">
+                            <div class="card d-inline-block m-3">
+                              <div class="card-body text-center">
+                                <img src="assets/monitor.svg" height="200px" width="auto">
+                                <div class="card-body">
+                                    <h5 class="card-title">Virtual Reality</h5>
+                                    <p class="card-text text-justify">Learn about the Virtual Reality workflow to create 3D models in Unity and the Windows Mixed Reality platform.</p>
+                                  </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <button id="btn_virtual" type="button" class="btn btn-secondary">LEARN MORE</button>
+                                    </li>
+                                  </ul>
+                              </div>
+                            </div>
+                            <div class="card d-inline-block m-3">
+                              <div class="card-body text-center">
+                                <img src="assets/3d.svg" height="200px" width="auto">
+                                  <div class="card-body">
+                                    <h5 class="card-title">Tangible Reality</h5>
+                                    <p class="card-text text-justify">Learn about the Tangible Reality workflow to create 3D models with embedded sensors and printable physical objects.</p>
+                                  </div>
+                                  <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <button id="btn_tangible" type="button" class="btn btn-secondary">LEARN MORE</button>  
+                                    </li>
+                                  </ul>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="section_people" class="row d-none">
+                        <div class="col">
+                            <div class="d-flex flex-wrap mt-3">
+                                <div class="p-2">
+                                    <div class="text-center">
+                                      <img src="https://faculty.utah.edu/bytes/image.hml?id=u0986438&fullsize=true" class="rounded" height="200px" width="auto" alt="...">
+                                        <p class="mb-0" style="width: 200px;">Eric Poitras<br>Assistant Professor<br>Department of Educational Psychology<br>University of Utah</p>
+                                        <a href="https://faculty.utah.edu/u0986438-Eric_G._Poitras/hm/index.hml">Link</a>
+                                    </div>
+                                </div>
+                                <div class="p-2 flex_items">
+                                    <div class="text-center">
+                                      <img src="https://faculty.utah.edu/bytes/image.hml?id=u0616669&fullsize=true" class="rounded" height="200px" width="auto" alt="...">
+                                        <p class="mb-0" style="width: 200px;">Kirsten Butcher<br>Associate Professor<br>Department of Educational Psychology<br>University of Utah</p>
+                                        <a href="https://faculty.utah.edu/u0616669-Kirsten_R._Butcher/hm/index.hml">Link</a>
+                                    </div>
+                                </div>
+                                <div class="p-2 flex_items">
+                                    <div class="text-center">
+                                      <img src="assets/male-user.svg" class="rounded" height="200px" width="auto" alt="...">
+                                        <p class="mb-0" style="width: 200px;">Matt Orr<br>Graduate Research Assistant<br>Department of Educational Psychology<br>University of Utah</p>
+                                        <a href="#">Link</a>
+                                    </div>
+                                </div>
+                                <div class="p-2 flex_items">
+                                    <div class="text-center">
+                                      <img src="assets/icon.svg" class="rounded" height="200px" width="auto" alt="...">
+                                        <p class="mb-0" style="width: 200px;">Michelle Hudson<br>Graduate Research Assistant<br>Department of Educational Psychology<br>University of Utah</p>
+                                        <a href="#">Link</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="section_acknowledgements" class="row d-none">
+                        <div class="col p-3">
+                            <h5>Acknowledgements</h5>
+                            <p>Support for this work has been provided by the College of Education at the University of Utah, the Windows Mixed Reality Funding Program, and the Natural History Museum of Utah.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="sections_virtualreality" class="container">
+                    <div id="section_vr_setup" class="row d-none">
+                        <div class="col p-3">
+                            <h4>Setting Up a Project</h4>
+                            <br>
+                            <h5>1. Installation Checklist | <a target="_blank" href="https://docs.microsoft.com/en-us/windows/mixed-reality/install-the-tools#installation-checklist">Documentation</a></h5>
+                            <p>The software required to build virtual reality apps are listed below:</p>
+                            <ul>
+                                <li>Windows 10 Operating System
+                                    <ul>
+                                        <li>Enable developer mode on your PC at Settings > Update & Security > For developers.</li>
+                                        <li>If your PC is managed by an your organization's IT department, you may need to contact them in order to update.</li>
+                                        <li>Windows Mixed Reality immersive (VR) headsets are not supported on 'N' versions of Windows.</li>
+                                    </ul>
+                                </li>
+                                <li>Visual Studio 2017
+                                    <ul>
+                                        <li>Do not install the Unity workload; this step will be completed later.</li>
+                                    </ul>
+                                </li>
+                                <li>Windows 10 SDK
+                                    <ul>
+                                        <li>Made available as part of the VS2017 installation.</li>
+                                    </ul>
+                                </li>
+                                <li>Unity Game Engine 2018.3
+                                    <ul>
+                                        <li>The Unity LTS (Long Term Support) stream as the best version with which to start new projects.</li>
+                                    </ul>
+                                </li>
+                                <li>Windows Mixed Reality Toolkit
+                                    <ul>
+                                        <li>Packages imported in Unity to facilitate the development process.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <h5>2. Setting Up the Hardware | <a target="_blank" href="https://docs.microsoft.com/en-us/windows/mixed-reality/install-the-tools#for-immersive-vr-headset-development">Documentation</a></h5>
+                            <p>Ensure that your PC meets the minimal hardware requirements to ensure proper performance - including graphics card, ports, bluetooth, and CPU/storage. For the complete list of supported devices, visit the <a href="https://www.microsoft.com/en-us/windows/windows-mixed-reality-devices">Windows Mixed Reality Devices</a>. To learn whether your own device meets the requirements, download the <a href="https://www.microsoft.com/en-us/p/windows-mixed-reality-pc-check/9nzvl19n7cnc?activetab=pivot:overviewtab">Windows Mixed Reality App Check</a> from the Windows Store.</p>
+                            <p>This documentation <em>only applies to Windows Mixed Reality headsets</em>. Additional requirements for developing for HoloLens 1 or 2 are not listed here.</p>
+                            <h5>3. Getting Started with Unity | <a target="_blank" href="https://docs.microsoft.com/en-us/windows/mixed-reality/holograms-100">Documentation</a></h5>
+                            <h6>3.1. Start a New Project</h6>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/2L5IFO0hnYA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <ol>
+                                <li>Start Unity</li>
+                                <li>Select New</li>
+                                <li>Enter a project name (e.g. "MixedRealityIntroduction")</li>
+                                <li>Enter a location to save your project</li>
+                                <li>Ensure the 3D toggle is selected</li>
+                                <li>Select Create project</li>
+                            </ol>
+                            <h6>3.2. Importing the Windows Mixed Reality Packages</h6>
+                            <ol>
+                                <li>Go to the <a target="_blank" href="https://github.com/Microsoft/MixedRealityToolkit-Unity/releases">MRTK release page</a>.</li>
+                                <li>Under Assets, download both Microsoft.MixedRealityToolkit.Unity.Examples.unitypackage and Microsoft.MixedRealityToolkit.Unity.Foundation.unitypackage</li>
+                                <li>Import the Microsoft.MixedRealityToolkit.Unity.Foundation.unitypackage you downloaded by going into "Asset -> Import Package -> Custom Package", selecting the .unitypackage file, ensure all items to import are checked, and then selecting "Import".</li>
+                                <li>Import Microsoft.MixedRealityToolkit.Unity.Examples.unitypackage following the same steps as above. The examples package is optional but contains useful demonstration scenes for current MRTK features.</li>
+                                <li>Some prefabs and assets require TextMesh Pro, meaning you have to have the TextMesh Pro package installed and the assets in your project (Window -> TextMeshPro -> Import TMP Essential Resources). After you import TMP Essentials Resources, you need to restart Unity to see changes.</li>
+                            </ol>
+                        </div>
+                    </div>
+                     <div id="section_vr_toolkit" class="row d-none">
+                        <div class="col p-3">
+                            <h4>Importing the Windows Mixed Reality Toolkit</h4>
+                            <br>
+                            <h5>1. Download the Latest Release | <a target="_blank" href="https://github.com/Microsoft/MixedRealityToolkit-Unity/releases">Documentation</a></h5>
+                            <p>Get the latest release of the Windows Mixed Reality Toolkit and read about any recent updates.</p>
+                            <ol>
+                                <li>Go to the <a target="_blank" href="https://github.com/Microsoft/MixedRealityToolkit-Unity/releases">MRTK release page</a>.</li>
+                                <li>Under Assets, download both Microsoft.MixedRealityToolkit.Unity.Examples.unitypackage and Microsoft.MixedRealityToolkit.Unity.Foundation.unitypackage</li>
+                            </ol>
+                            <h5>2. Importing the Toolkit as a Package in Unity | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html">Documentation</a></h5>
+                            <ol>
+                                <li>Import the Microsoft.MixedRealityToolkit.Unity.Foundation.unitypackage you downloaded by going into "Asset -> Import Package -> Custom Package", selecting the .unitypackage file, ensure all items to import are checked, and then selecting "Import".</li>
+                                <li>Import Microsoft.MixedRealityToolkit.Unity.Examples.unitypackage following the same steps as above. The examples package is optional but contains useful demonstration scenes for current MRTK features.</li>
+                                <li>Some prefabs and assets require TextMesh Pro, meaning you have to have the TextMesh Pro package installed and the assets in your project (Window -> TextMeshPro -> Import TMP Essential Resources). After you import TMP Essentials Resources, you need to restart Unity to see changes.</li>
+                            </ol>
+                            <h5>3. Add the Toolkit to a New Scene in Unity | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html#add-mrtk-to-a-new-scene-or-new-project">Documentation</a></h5>
+                            <ol>
+                                <li>Create a new project or start a new scene in your current project.</li>
+                                <li>From the menu bar, select Mixed Reality Toolkit -> Add to Scene and Configure.</li>
+                                <li>You will then be prompted to choose an MRTK Configuration profile. Double click "DefaultMixedRealityToolkitConfigurationProfile".</li>
+                                <li>You will then see the following in your Scene hierarchy:
+                                    <ul>
+                                        <li>Mixed Reality Toolkit - The toolkit itself, providing the central configuration entry point for the entire framework.</li>
+                                        <li>MixedRealityPlayspace - The parent object for the headset, which ensures the headset / controllers and other required systems are managed correctly in the scene.</li>
+                                        <li>The Main Camera is moved as a child to the Playspace - Which allows the playspace to manage the camera in conjunction with the SDK's. Note While working in your scene, DO NOT move the Main Camera (or the playspace) from the scene origin (0,0,0). This is controlled by the MRTK and the active SDK. If you need to move the players start point, then move the scene content and NOT the camera!</li>
+                                    </ul>
+                                </li>
+                                <li>Hit play and test out hand simulation by pressing spacebar.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="section_vr_model" class="row d-none">
+                        <div class="col p-3">
+                            <h4>Adding the 3D Model</h4>
+                            <br>
+                            <h5>1. Import the 3D Model | <a target="_blank" href="https://docs.unity3d.com/Manual/ImportingAssets.html">Documentation</a></h5>
+                            <p>Export the 3D model as a .obj file. Otherwise, Unity also supports several different <a target="_blank" href="https://docs.unity3d.com/Manual/3D-formats.html">file extension types</a>.</p>
+                            <ol>
+                                <li>You can import the 3D model by dragging and dropping the .obj file inside the Assets folder</li>
+                                <li>From the project monitor, select the .obj file to view its settings.</li>
+                                <li>Drag and drop the .obj file in the scene area (under Hierarchy). The .obj file is assigned a name (e.g., UMNH VP 24854 Allosaurus ungual) and has an embedded asset (e.g., Group1). Scale the model name (e.g., X: 0.02; Y: 0.02; Z: 0.02) and adjust the position for it to appear in front of the camera (e.g., X: 0; Y: 0; Z: 2).</li>
+                                 <li>Scale the model name (e.g., X: 0.25; Y: 0.25; Z: 0.25) and adjust the position for it to appear in front of the camera (e.g., X: 0; Y: 0; Z: 0) and rotation (e.g., X: 45; Y: 45; Z: 45).</li>
+                            </ol>
+                            <h5>2. Import the Texture | <a target="_blank" href="https://docs.unity3d.com/Manual/ImportingAssets.html">Documentation</a></h5>
+                            <p>Export the texture as a .png file.</p>
+                            <ol>
+                                <li>In the Assets folder, create a new folder called "Textures".</li>
+                                <li>You can import the texture by dragging and dropping the .png file inside the Assets > Textures folder.</li>
+                                <li>Drag and drop the .png file on to the embedded asset of the 3D model (e.g., Group1). You should see the appearance of the model change in the scene area.</li>
+                            </ol>
+                            <h5>3. Customize the Scene Boundaries | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Boundary/BoundarySystemGettingStarted.html">Documentation</a></h5>
+                            <p>Customize the settings of the WMRT to change the background color of the scene boundaries.</p>
+                            <ol>
+                                <li>Select the MixedRealityToolkit in the Hierarchy panel.</li>
+                                <li>Enable the customization option to the default configuration of the WMRT project settings.</li>
+                                <li>In Camera Settings, select Clone for the Camera Profile. Select the dropdown option to view the Camera Profile Contents.</li>
+                                <li>Set the Background Color to Black.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div id="section_vr_boundingbox" class="row d-none">
+                        <div class="col p-3">
+                            <h4>Adding a Bounding Box</h4>
+                            <br>
+                            <h5>1. Adding the Bounding Box Component to the 3D Model | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html">Documentation</a></h5>
+                            <p>Add components to the 3D model to create a bounding box to enable user interactions.</p>
+                            <ol>
+                                <li>Select the embedded asset of the 3D model (e.g., Group1).</li>
+                                <li>Select the Add Components button at the bottom of the Inspector panel.</li>
+                                <li>Type Box Collider in the dropdow and add the component to the 3D model. The default settings for the Box Collider should work well.</li>
+                                <li>Now let's add the Bounding Box. Use the settings shown below.</li>
+                            </ol>
+                            <img src="assets/boundingbox1.png" height="500px" width="auto">
+                           <h5>2. Adding the Manipulation Handler Component to the 3D Model | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html">Documentation</a></h5>
+                            <p>Enables users to drag the 3D model and change its position.</p>
+                            <ol>
+                                <li>Select the embedded asset of the 3D model (e.g., Group1).</li>
+                                <li>Select the Add Components button at the bottom of the Inspector panel.</li>
+                                <li>Type Manipulation Handler in the dropdow and add the component to the 3D model.</li>
+                                <li>Use the settings shown below.</li>
+                            </ol>
+                            <img src="assets/boundingbox2.png" height="300px" width="auto">
+                        </div>
+                    </div>
+                    <div id="section_vr_loginteractions" class="row d-none">
+                        <div class="col p-3">
+                            <h4>Adding a Script to Log Interactions</h4>
+                            <br>
+                            <h5>1. Adding a Script | <a target="_blank" href="https://learn.unity.com/tutorial/scripts-as-behaviour-components?projectId=5c8920b4edbc2a113b6bc26a&playlist=17117#">Documentation</a></h5>
+                            <p>Create a new script.</p>
+                            <ol>
+                                <li>In the Project panel, select the Create dropdown menu. Choose the C# Script option.</li>
+                                <li>Write a name for the script.</li>
+                                <li>Select the script and choose Open in the Inspector panel. This will open Visual Studio to edit the script.</li>
+                            </ol>
+                           <h5>2. Defining Functions to Log Events | <a target="_blank" href="https://support.microsoft.com/en-us/help/816149/how-to-read-from-and-write-to-a-text-file-by-using-visual-c">Documentation</a></h5>
+                            <p>Add C# functions in the script to log user interaction events.</p>
+                            <pre style="background-color: black; color: white;">
+using System;
+using System.IO;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class NewBehaviourScript : MonoBehaviour
+{
+
+    public override bool Equals(object other)
+    {
+        return base.Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+
+    public override string ToString()
+    {
+        return base.ToString();
+    }
+
+    // Start is called before the first frame update
+    void Start() => Debug.Log(message: GetLogEntry("Session_Start_Event"));
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public string GetLogEntry(String value)
+    {
+        string path = "Assets/Resources/test.txt";
+        //Write some text to the test.txt file
+        StreamWriter writer = new StreamWriter(path, true);
+        writer.WriteLine("'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'");
+        writer.Close();
+        return "'timestamp';'"+DateTime.Now.ToString()+"';'Event_Label';'"+value+"';'Rotation';'Rot_X';'"+ transform.rotation.eulerAngles.x.ToString()+"';'Rot_Y';'"+ transform.rotation.eulerAngles.y.ToString()+"';'Rot_Z';'"+ transform.rotation.eulerAngles.z.ToString()+"';'Scale';'Sca_X';'"+ transform.localScale.x.ToString()+"';'Sca_Y';'"+ transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString()+"';'Position';'Pos_X';'"+ transform.position.x.ToString()+"';'Pos_Y';'"+ transform.position.y.ToString()+"';'Pos_Z';'"+ transform.position.z.ToString()+"';'";
+    }
+
+    public void LogOrientationEventStart() => Debug.Log(message: GetLogEntry("Rotation_Start_Event"));
+
+    public void LogOrientationEventStop() => Debug.Log(message: GetLogEntry("Rotation_Stop_Event"));
+
+    public void LogScaleEventStart() => Debug.Log(message: GetLogEntry("Scale_Start_Event"));
+
+    public void LogScaleEventStop() => Debug.Log(message: GetLogEntry("Scale_Stop_Event"));
+
+    public void LogPositionEventStart() => Debug.Log(message: GetLogEntry("Position_Start_Event"));
+
+    public void LogPositionEventStop() => Debug.Log(message: GetLogEntry("Position_Stop_Event"));
+
+}
+                            </pre>
+                            <p>Add a text file called "test.txt" in the "Assets > Resources" folder. Notice this matches to the path defined in the script.</p>
+                            <h5>3. Assigning Functions to Handle Interactions | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html#events">Documentation</a></h5>
+                            <p>Assign script functions to handle events.</p>
+                            <ol>
+                                <li>Select the embedded asset of the 3D model (e.g., Group1).</li>
+                                <li>Select the Add Components button at the bottom of the Inspector panel.</li>
+                                <li>Choose Scripts and select the new script.</li>
+                                <img src="assets/script1.png" height="auto" width="600px">
+                                <li>In the Inspector panel, drag and drop the 3D model (e.g., Group1) to the event box in the Bounding Box script settings. Then, choose the function in the C# script to handle that event. These functions are listed in the dropdown menu.</li>
+                                <img src="assets/script2.png" height="auto" width="600px">
+                                <li>Repeat the same process with functions to handle the dragging events related to the module in the Manipulation Handler script settings.</li>
+                                <img src="assets/script3.png" height="auto" width="600px">
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+    <!-- 
+        Icon made by Kiranshastry (https://www.flaticon.com/authors/kiranshastry) from www.flaticon.com 
+    -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/variables.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/handlers.js"></script>
+    <script src="js/listeners.js"></script>
+      
+    <script>
+        $(document).ready(function(){
+          // Initialize UI view to the landing page
+          router("about-home");
+        });  
+    </script>
+  </body>
+</html>

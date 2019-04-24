@@ -1,0 +1,11 @@
+#UI_sidebar h6{
+    color: gray;
+}
+
+#UI_sidebar li{
+    background-color: transparent;
+}
+
+#UI_sidebar ul{
+    margin-bottom: 25px;
+}
