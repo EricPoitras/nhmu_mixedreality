@@ -148,7 +148,7 @@
                                 </li>
                                 <li>Visual Studio 2017
                                     <ul>
-                                        <li>Do not install the Unity workload; this step will be completed later.</li>
+                                        <li>Do not install the Unity workload; this step will be completed later. You should install the latest Visual Studio 2017/2019 application, UWP development package (C++ UWP tools, Win 10 SDK 10.0.17134.0) and C++ Windows SDK (10.0.17763.0)</li>
                                     </ul>
                                 </li>
                                 <li>Windows 10 SDK
@@ -220,6 +220,19 @@
                                     </ul>
                                 </li>
                                 <li>Hit play and test out hand simulation by pressing spacebar.</li>
+                            </ol>
+                            <h5>4. Setting Up Your Project for a Build | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html#add-mrtk-to-a-new-scene-or-new-project">Documentation</a></h5>
+                            <ol>
+                                <li>Choose Edit > Project Settings. In Player Settings, select the Windows icon. Choose XR Settings and select Virtual Reality Supported.</li>
+                                <li>Choose Other Settings and select IL2CPP from the Scripting Backend dropdown menu.</li>
+                                <li><em>Once your project is ready to be published</em>, choose File > Build Settings. Select Add Open Scenes. Choose Universal Windows Platform as the targeted platform.</li>
+                                <li>For Target Device, choose Any Device.</li>
+                                <li>For Architecture, choose X64.</li>
+                                <li>For Build Type, choose D3D.</li>
+                                <li>For Target SDK Version, choose Latest Installed.</li>
+                                <li>For Minimum Platform Version, choose 10.0.10240.0</li>
+                                <li>For Visual Studio Version, choose VS 2017.</li>
+                                <li>Choose Debug on your own local machine. Select Build. Create a new folder and call it "App". Once the Build has been succesfully completed, open the .sln project file in Visual Studio to build a release or debug version. For instance, choose the Debug option, X64 as the architecture, and on device. Now choose Debug > Play without Debugging. Make sure that your device is connected to the USB and the Mixed Reality Portal is open and running.</li>
                             </ol>
                         </div>
                     </div>
