@@ -288,7 +288,7 @@
                                 <li>Select the script and choose Open in the Inspector panel. This will open Visual Studio to edit the script.</li>
                             </ol>
                            <h5>2. Defining Functions to Log Events | <a target="_blank" href="https://support.microsoft.com/en-us/help/816149/how-to-read-from-and-write-to-a-text-file-by-using-visual-c">Documentation</a></h5>
-                            <p>Add C# functions in the script to log user interaction events.</p>
+                            <p>Add C# functions in the script to log user interaction events. The 'O' key may be used to indicate the start of the experiment, while the 'P' key is used to close the application at the end of an experiment.</p>
                             <pre style="background-color: black; color: white;">
 using System;
 using System.IO;
@@ -298,7 +298,7 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-
+    
     public override bool Equals(object other)
     {
         return base.Equals(other);
@@ -315,12 +315,67 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start() => Debug.Log(message: GetLogEntry("Session_Start_Event"));
+    void Start() => Debug.Log(message: GetLogEntry("New_Session_Event"));
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(message: GetLogEntry("Space_Key_Down"));
+        }else if(Input.GetKeyUp(KeyCode.Space))
+        {
+            Debug.Log(message: GetLogEntry("Space_Key_Up"));
+        }
+        else if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log(message: GetLogEntry("A_Key_Down"));
+        }
+        else if (Input.GetKeyUp(KeyCode.A))
+        {
+            Debug.Log(message: GetLogEntry("A_Key_Up"));
+        }
+        else if (Input.GetKeyDown(KeyCode.W))
+        {
+            Debug.Log(message: GetLogEntry("W_Key_Down"));
+        }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            Debug.Log(message: GetLogEntry("W_Key_Up"));
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            Debug.Log(message: GetLogEntry("D_Key_Down"));
+        }
+        else if (Input.GetKeyUp(KeyCode.D))
+        {
+            Debug.Log(message: GetLogEntry("D_Key_Up"));
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            Debug.Log(message: GetLogEntry("S_Key_Down"));
+        }
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+            Debug.Log(message: GetLogEntry("S_Key_Up"));
+        }
+        else if (Input.GetKeyDown(KeyCode.O))
+        {
+            Debug.Log(message: GetLogEntry("O_Key_Down_Start_Session"));
+        }
+        else if (Input.GetKeyUp(KeyCode.O))
+        {
+            Debug.Log(message: GetLogEntry("O_Key_Up_Start_Session"));
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            Debug.Log(message: GetLogEntry("P_Key_Down_End_Session"));
+        }
+        else if (Input.GetKeyUp(KeyCode.P))
+        {
+            Debug.Log(message: GetLogEntry("P_Key_Up_End_Session"));
+            Application.Quit();
+        }
     }
 
     public string GetLogEntry(String value)
@@ -328,9 +383,9 @@ public class NewBehaviourScript : MonoBehaviour
         string path = "Assets/Resources/test.txt";
         //Write some text to the test.txt file
         StreamWriter writer = new StreamWriter(path, true);
-        writer.WriteLine("'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'");
+        writer.WriteLine("'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'");
         writer.Close();
-        return "'timestamp';'"+DateTime.Now.ToString()+"';'Event_Label';'"+value+"';'Rotation';'Rot_X';'"+ transform.rotation.eulerAngles.x.ToString()+"';'Rot_Y';'"+ transform.rotation.eulerAngles.y.ToString()+"';'Rot_Z';'"+ transform.rotation.eulerAngles.z.ToString()+"';'Scale';'Sca_X';'"+ transform.localScale.x.ToString()+"';'Sca_Y';'"+ transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString()+"';'Position';'Pos_X';'"+ transform.position.x.ToString()+"';'Pos_Y';'"+ transform.position.y.ToString()+"';'Pos_Z';'"+ transform.position.z.ToString()+"';'";
+        return "'timestamp';'"+DateTime.Now.ToString()+"';'Event_Label';'"+value+"';'Rotation';'Rot_X';'"+ transform.rotation.eulerAngles.x.ToString()+"';'Rot_Y';'"+ transform.rotation.eulerAngles.y.ToString()+"';'Rot_Z';'"+ transform.rotation.eulerAngles.z.ToString()+"';'Scale';'Sca_X';'"+ transform.localScale.x.ToString()+"';'Sca_Y';'"+ transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString()+"';'Position';'Pos_X';'"+ transform.position.x.ToString()+"';'Pos_Y';'"+ transform.position.y.ToString()+"';'Pos_Z';'"+ transform.position.z.ToString()+ "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'";
     }
 
     public void LogOrientationEventStart() => Debug.Log(message: GetLogEntry("Rotation_Start_Event"));
