@@ -305,13 +305,15 @@
                             <pre style="background-color: black; color: white;">
 using System;
 using System.IO;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    
+    string path;
+
     public override bool Equals(object other)
     {
         return base.Equals(other);
@@ -328,8 +330,15 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start() => Debug.Log(message: GetLogEntry("New_Session_Event"));
-
+    void Start()
+    {
+        
+        string directory = Directory.GetCurrentDirectory().ToString();
+        string logName = @"\gameLog"+ DateTime.Now.ToString("MMMM dd") + ".txt";
+        path = directory + logName;
+        Debug.Log(message: GetLogEntry("New_Session_Event"));
+        Debug.Log(message: path);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -393,12 +402,25 @@ public class NewBehaviourScript : MonoBehaviour
 
     public string GetLogEntry(String value)
     {
-        string path = "Assets/Resources/test.txt";
-        //Write some text to the test.txt file
-        StreamWriter writer = new StreamWriter(path, true);
-        writer.WriteLine("'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'");
-        writer.Close();
-        return "'timestamp';'"+DateTime.Now.ToString()+"';'Event_Label';'"+value+"';'Rotation';'Rot_X';'"+ transform.rotation.eulerAngles.x.ToString()+"';'Rot_Y';'"+ transform.rotation.eulerAngles.y.ToString()+"';'Rot_Z';'"+ transform.rotation.eulerAngles.z.ToString()+"';'Scale';'Sca_X';'"+ transform.localScale.x.ToString()+"';'Sca_Y';'"+ transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString()+"';'Position';'Pos_X';'"+ transform.position.x.ToString()+"';'Pos_Y';'"+ transform.position.y.ToString()+"';'Pos_Z';'"+ transform.position.z.ToString()+ "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'";
+        
+        string input = "'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'Rot_Cam_X';'" + Camera.main.transform.rotation.x.ToString() + "';'Rot_Cam_Y';'" + Camera.main.transform.rotation.y.ToString() + "';'Rot_Cam_Z';'" + Camera.main.transform.rotation.z.ToString() + "';'Sca_Cam_X';'" + Camera.main.transform.localScale.x.ToString() + "';'Sca_Cam_Y';'" + Camera.main.transform.localScale.y.ToString() + "';'Sca_Cam_Z';'" + Camera.main.transform.localScale.z.ToString() + "';'";
+        if (!File.Exists(path))
+        {
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                sw.WriteLine(input);
+                return input;
+            }
+
+        }
+        else
+        {
+            using (StreamWriter sw = File.AppendText(path))
+            {
+                sw.WriteLine(input);
+                return input;
+            }
+        }
     }
 
     public void LogOrientationEventStart() => Debug.Log(message: GetLogEntry("Rotation_Start_Event"));
