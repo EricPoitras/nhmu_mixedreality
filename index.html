@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="p-2 flex_items">
                                     <div class="text-center">
-                                      <img src="assets/male-user.svg" class="rounded" height="200px" width="auto" alt="...">
+                                      <img src="assets/Matt.jpeg" class="rounded" height="200px" width="auto" alt="...">
                                         <p class="mb-0" style="width: 200px;">Matt Orr<br>Graduate Research Assistant<br>Department of Educational Psychology<br>University of Utah</p>
                                         <a href="#">Link</a>
                                     </div>
@@ -219,6 +219,9 @@
                                         <li>The Main Camera is moved as a child to the Playspace - Which allows the playspace to manage the camera in conjunction with the SDK's. Note While working in your scene, DO NOT move the Main Camera (or the playspace) from the scene origin (0,0,0). This is controlled by the MRTK and the active SDK. If you need to move the players start point, then move the scene content and NOT the camera!</li>
                                     </ul>
                                 </li>
+                                <li>Select the Mixed Reality Toolkit in the Hierarchy panel.</li>
+                                <li>In the Inspector panel, choose Experience Settings. In the Target Scale dropdown menu, select the Seated option.</li>
+                                <li>Scroll down the Inspector panel and deselect both the Enable Diagnostic System and Teleport functionalities.</li>
                                 <li>Hit play and test out hand simulation by pressing spacebar.</li>
                             </ol>
                             <h5>4. Setting Up Your Project for a Build | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html#add-mrtk-to-a-new-scene-or-new-project">Documentation</a></h5>
@@ -233,7 +236,9 @@
                                 <li>For Minimum Platform Version, choose 10.0.10240.0</li>
                                 <li>For Visual Studio Version, choose VS 2017.</li>
                                 <li>Choose Debug on your own local machine. Select Build. Create a new folder and call it "App". Once the Build has been succesfully completed, open the .sln project file in Visual Studio to build a release or debug version. For instance, choose the Debug option, X64 as the architecture, and on device. Now choose Debug > Play without Debugging. Make sure that your device is connected to the USB and the Mixed Reality Portal is open and running.</li>
+                                <li><em>For research purposes, always run the project in the Game preview mode in the Unity editor.</em> Split the views of the user interface to show both the Game and Console panels. Tell the participant to adjust the headset and keep the headset screen facing upwards in order to view the PC screen. Press the Play button followed by the 'O' key to log a session start event. The participant can now move the headseet screen downwards in front of their own eyes to begin a session. During the session, press the Windows and Y keys to view the Game preview on the screen for video-recording purposes. At the end of a session, press the 'P' key to log a session end event. Instruct the participant to move the headset screen upwards to view the PC screen.</li>
                             </ol>
+                            <a class="btn btn-primary" href="https://uofu.box.com/shared/static/withldi2l8vkag2p960jo0x7rkkqa5db.zip" role="button" target="_blank">Download Demo Project</a>
                         </div>
                     </div>
                     <div id="section_vr_model" class="row d-none">
@@ -254,6 +259,9 @@
                                 <li>In the Assets folder, create a new folder called "Textures".</li>
                                 <li>You can import the texture by dragging and dropping the .png file inside the Assets > Textures folder.</li>
                                 <li>Drag and drop the .png file on to the embedded asset of the 3D model (e.g., Group1). You should see the appearance of the model change in the scene area.</li>
+                                <li>In the Textures folder, select the .png file.</li>
+                                <li>In the Texture Type dropdown menu, select the Lightmap option.</li>
+                                <li>Choose ToSmaller option in the Advanced dropdown menu. Select the Windows icon at the bottom, choose Override for Universal Windows Platform.</li>
                             </ol>
                             <h5>3. Customize the Scene Boundaries | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/Boundary/BoundarySystemGettingStarted.html">Documentation</a></h5>
                             <p>Customize the settings of the WMRT to change the background color of the scene boundaries.</p>
@@ -262,6 +270,9 @@
                                 <li>Enable the customization option to the default configuration of the WMRT project settings.</li>
                                 <li>In Camera Settings, select Clone for the Camera Profile. Select the dropdown option to view the Camera Profile Contents.</li>
                                 <li>Set the Background Color to Black.</li>
+                                <li>Select Directional Light in the Hierarchy panel.</li>
+                                <li>In the Inspector panel, select Directional in the Light dropdown menu options.</li>
+                                <li>Increase the Bias property until the object is clearly visible (i.e., Bias 0.8).</li>
                             </ol>
                         </div>
                     </div>
@@ -342,6 +353,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(message: GetLogEntry("Frame_Update"));
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(message: GetLogEntry("Space_Key_Down"));
@@ -402,7 +414,11 @@ public class NewBehaviourScript : MonoBehaviour
 
     public string GetLogEntry(String value)
     {
-        
+        //string path = "Assets/Resources/test.txt";
+        //Write some text to the test.txt file
+        //StreamWriter writer = new StreamWriter(path, true);
+        //writer.WriteLine("'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'");
+        //writer.Close();
         string input = "'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'Rot_Cam_X';'" + Camera.main.transform.rotation.x.ToString() + "';'Rot_Cam_Y';'" + Camera.main.transform.rotation.y.ToString() + "';'Rot_Cam_Z';'" + Camera.main.transform.rotation.z.ToString() + "';'Sca_Cam_X';'" + Camera.main.transform.localScale.x.ToString() + "';'Sca_Cam_Y';'" + Camera.main.transform.localScale.y.ToString() + "';'Sca_Cam_Z';'" + Camera.main.transform.localScale.z.ToString() + "';'";
         if (!File.Exists(path))
         {
@@ -437,7 +453,7 @@ public class NewBehaviourScript : MonoBehaviour
 
 }
                             </pre>
-                            <p>Add a text file called "test.txt" in the "Assets > Resources" folder. Notice this matches to the path defined in the script.</p>
+                            <p>The functions will log user interactions and properties related to the camera and object in a text file labelled by the date (i.e., Month and Day) in the main directory of your Unity project. This feature is currently available in the debugger version opened directly from the Unitor editor window. You will see the log entries in the Console panel as well as the preview in the Game panel.</p>
                             <h5>3. Assigning Functions to Handle Interactions | <a target="_blank" href="https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/README_BoundingBox.html#events">Documentation</a></h5>
                             <p>Assign script functions to handle events.</p>
                             <ol>
