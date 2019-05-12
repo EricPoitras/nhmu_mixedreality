@@ -43,7 +43,9 @@
                 </ul>
                 <h6 class="mt-3">TANGIBLE</h6>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">Coming soon</li>
+                  <li class="list-group-item"><a id="link_tan_setup" href="#">Setting Up the Device</a></li>
+                  <li class="list-group-item"><a id="link_tan_program" href="#">MPU 9250 Program</a></li>
+                  <li class="list-group-item"><a id="link_tan_loginteractions" href="#">Script</a></li>
                 </ul>
             </div>
             <div id="UI_main" class="col-10 p-0">
@@ -466,6 +468,159 @@ public class NewBehaviourScript : MonoBehaviour
                                 <li>Repeat the same process with functions to handle the dragging events related to the module in the Manipulation Handler script settings.</li>
                                 <img src="assets/script3.png" height="auto" width="600px">
                             </ol>
+                        </div>
+                    </div>
+                </div>
+                <div id="sections_tangiblereality" class="container d-none">
+                    <div id="section_tan_setup" class="row d-none">
+                        <div class="col p-3">
+                            <h4>Setting Up the Device</h4>
+                            <br>
+                            <h5>1. Installation Checklist | <a target="_blank" href="https://technicalustad.com/guide-to-interfacing-mpu9250-gyroscope-magnetometer-and-accelerometer-with-a-raspberry-pi/">Documentation</a></h5>
+                            <p>The hardware required to build tangible models with sensors are listed below:</p>
+                            <ul>
+                                <li>Raspberry Pi 3
+                                    <ul>
+                                        <li><a href="https://www.amazon.com/CanaKit-Raspberry-Starter-Premium-Black/dp/B07BCC8PK7/ref=as_li_ss_tl?s=pc&ie=UTF8&qid=1524031218&sr=1-1-spons&keywords=Raspberry+Pi&psc=1&linkCode=sl1&tag=technicalustad-20&linkId=26f093924b392d6f4fafee4f9f6a7084">Board</a></li>
+                                        <li><a href="https://www.amazon.com/Raspberry-Pi-7-Touchscreen-Display/dp/B0153R2A9I/ref=pd_bxgy_147_2/143-2420676-1529016?_encoding=UTF8&pd_rd_i=B0153R2A9I&pd_rd_r=fb5bd31c-7477-11e9-971b-9785a3a220f1&pd_rd_w=V43Kg&pd_rd_wg=VMafZ&pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&pf_rd_r=NZYW75AJ64V90QMH5Q6T&psc=1&refRID=NZYW75AJ64V90QMH5Q6T">Screen</a></li>
+                                        <li><a href="https://www.amazon.com/SmartiPi-Official-Raspberry-Touchscreen-Display/dp/B01HV97F64/ref=sr_1_5?keywords=raspberry+screen&qid=1557639406&s=electronics&sr=1-5">Monitor Case</a></li>
+                                        <li><a href="https://www.amazon.com/AmazonBasics-KU-0833-Wired-Keyboard/dp/B005EOWBHC?ref_=Oct_BSellerC_12879431_3&pf_rd_p=24ad9d66-08e2-53a1-b814-af207153cb9b&pf_rd_s=merchandised-search-6&pf_rd_t=101&pf_rd_i=12879431&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=D73Y0JNXSCFBASNFY20Z&pf_rd_r=D73Y0JNXSCFBASNFY20Z&pf_rd_p=24ad9d66-08e2-53a1-b814-af207153cb9b">Keyboard</a></li>
+                                        <li><a href="https://www.amazon.com/AmazonBasics-3-Button-Wired-Mouse-Black/dp/B005EJH6RW/ref=pd_bxgy_147_2/143-2420676-1529016?_encoding=UTF8&pd_rd_i=B005EJH6RW&pd_rd_r=496eda97-7478-11e9-b3a7-ed1ea68e8e78&pd_rd_w=rxGOT&pd_rd_wg=Hwi1c&pf_rd_p=a2006322-0bc0-4db9-a08e-d168c18ce6f0&pf_rd_r=JVHZ2AC3VGVS8829JCZ9&psc=1&refRID=JVHZ2AC3VGVS8829JCZ9">Mouse</a></li>
+                                    </ul>
+                                </li>
+                                <li>MPU9250 9-Axis DOF 16Bit 
+                                    <ul>
+                                        <li><a href="https://www.amazon.com/d/Sensor-Blocks/HiLetgo-Gyroscope-Acceleration-Accelerator-Magnetometer/B01I1J0Z7Y">Gyroscope, Acceleration, Magnetic Sensor 9-Axis</a></li>
+                                    </ul>
+                                </li>
+                                <li>Electrical Components
+                                    <ul>
+                                        <li><a href="https://www.amazon.com/RGBZONE-Connector-Female-WS2801-LPD8806/dp/B06XSGF2GC">4 Pin im Wire Male Female Cable</a></li>
+                                        <li><a href="https://www.amazon.com/Breadboard-Wires-Jumper-Multicolored-Raspberry/dp/B01GK2Q4ZQ">Jumper Wires</a></li>
+                                        <li><a href="https://www.amazon.com/Decker-Universal-Circuit-Black-Breadboard/dp/B075SYF9W5/ref=sr_1_2?keywords=breadboard+case+stack&qid=1557640657&s=electronics&sr=1-2-catcorr">Breadboard and Circuit Case</a></li>
+                                        <li><a href="https://www.amazon.com/dp/B07DL25MVQ/ref=sspa_dk_detail_3?psc=1&pd_rd_i=B07DL25MVQ&pd_rd_w=t7NYO&pf_rd_p=8a8f3917-7900-4ce8-ad90-adf0d53c0985&pd_rd_wg=LD7Ar&pf_rd_r=6ZEH56T6XMP69R8J6MHD&pd_rd_r=32b67054-747a-11e9-8ad6-676656a66066">Pi T Breakout</a></li>
+                                        <li><a href="https://www.amazon.com/Cylewet-12x12x7-3mm-Momentary-Tactile-Arduino/dp/B01NCQVGLC/ref=pd_sbs_60_1/143-2420676-1529016?_encoding=UTF8&pd_rd_i=B01NCQVGLC&pd_rd_r=219d58c4-747b-11e9-a9da-2171f603c15c&pd_rd_w=6Ivk7&pd_rd_wg=iSm5e&pf_rd_p=588939de-d3f8-42f1-a3d8-d556eae5797d&pf_rd_r=0580ENQ4BSJ6FG7AHQP5&psc=1&refRID=0580ENQ4BSJ6FG7AHQP5">Push Button</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <h5>2. Installation of Raspbian | <a target="_blank" href="https://thepi.io/how-to-install-raspbian-on-the-raspberry-pi/">Documentation</a></h5>
+                            <p>Setup the monitor by following the steps shown below:</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/tK-w-wDvRTg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>Install the Raspbian operating system by following these steps:</p>
+                            <ul>
+                                <li>Download Raspbian and extract the contents of the file.</li>
+                                <li>Save the contents of the file to a USB drive. The drive itself will need to be formatted through the steps explained in this video.</li>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/wuKgWK7O9p8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </ul>
+                            <p>Enable your I2C Communication</p>
+                            <ul>
+                                <li>Open the terminal. Type "raspi-config" in a the terminal.</li>
+                                <li>Select Enter and choose Interfacing. </li>
+                                <li>Select the I2C option. Choose Enabled and Save.</li>
+                            </ul>
+                            <p>Make the wiring (<a href="https://pinout.xyz/">See the following pins</a>)</p>
+                            <img src="assets/wiring.JPG" height="300px" width="auto">
+                            <ul>
+                                <li>Connect the SDA pin of the MPU9250 sensor to the SDA pin of the Raspberry Pi</li>
+                                <li>Connect the SCL pin of the MPU9250 sensor to the SCL pin of the Raspberry Pi</li>
+                                <li>Connect the VCC pin of the MPU9250 sensor to the 3.3V pin of the Raspberry Pi</li>
+                                <li>Connect the GND pin of the MPU9250 sensor to the GND pin of the Raspberry Pi</li>
+                                <li>Connect the GPIO4 pin of the Raspberry Pi to one of the pins of the press button switch</li>
+                                <li>Connect the other pin of the button to the Ground pin of the Raspberry Pi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="section_tan_program" class="row d-none">
+                        <div class="col p-3">
+                            <h4>MPU 9250 Program</h4>
+                            <br>
+                            <h5>1. Configuring the Software | <a target="_blank" href="https://github.com/cityofeden/cosmic/tree/master/Sensors/MPU%209250">Documentation</a></h5>
+                            <p>Download the folder structure of the "MPU9250" folder of the GitHub project to the Desktop of the Raspberry Pi. Create a new folder in the directory called "logfile.txt" (<a href="https://github.com/cityofeden/cosmic/tree/master/Sensors/MPU%209250">Link</a>).</p>
+                            <p>In the Terminal, navigate to the directory by typing cd Desktop. Then, choose cd MPU9250.</p>
+                            <p>Type "sudo pip install FaBo9Axis_MPU9250". You may need to install pip by typing "sudo apt-get install python-pip".</p>
+                            <p>Type "python program.py" to run the program and register the sensor input values to the debugger console. You can open the program by navigating to the directory in the Terminal and typing "python program.py".</p>
+                        </div>
+                    </div>
+                    <div id="section_tan_loginteractions" class="row d-none">
+                        <div class="col p-3">
+                            <h4>Script to Log User Interactions</h4>
+                            <br>
+                            <h5>1. Customizing the Script | <a target="_blank" href="https://github.com/cityofeden/cosmic/tree/master/Sensors/MPU%209250">Documentation</a></h5>
+                            <p>Use the following script in the program.py file to log events with a timestamp and enable logging of button press events.</p>
+                            <pre style="background-color: black; color: white;">
+import FaBo9Axis_MPU9250
+import time
+import datetime
+import sys
+from gpiozero import Button
+button = Button(4)
+
+def start_calibration():
+    st = str(datetime.datetime.now())+";"
+    print(st+";Start Calibration")
+    file.write(st+";Start Calibration")
+    file.write("\n")
+    
+def end_calibration():
+    st = str(datetime.datetime.now())+";"
+    print(st+";End Calibration")
+    file.write(st+";End Calibration")
+    file.write("\n")
+    
+button.when_pressed = start_calibration
+button.when_released = end_calibration
+
+#import keyboard
+
+mpu9250 = FaBo9Axis_MPU9250.MPU9250()
+file = open("logfile.txt","a")
+
+try:
+    while True:
+        accel = mpu9250.readAccel()
+        print " ax = " , ( accel['x'] )
+        ax = " ax = ;"+str(accel['x'])+";"
+        print " ay = " , ( accel['y'] )
+        ay = " ay = ;"+str(accel['y'])+";"
+        #file.write(" ay = " ( accel['y'] ))
+        print " az = " , ( accel['z'] )
+        az = " az = ;"+str(accel['z'])+";"
+        #file.write(" az = " ( accel['z'] ))
+
+        gyro = mpu9250.readGyro()
+        print " gx = " , ( gyro['x'] )
+        gx = " gx = ;"+str(gyro['x'])+";"
+        #file.write(" gx = " ( gyro['x'] ))
+        print " gy = " , ( gyro['y'] )
+        gy = " gy = ;"+str(gyro['y'])+";"
+        #file.write(" gy = " ( gyro['y'] ))
+        print " gz = " , ( gyro['z'] )
+        gz = " gz = ;"+str(gyro['z'])+";"
+        #file.write(" gz = " ( gyro['z'] ))
+
+        mag = mpu9250.readMagnet()
+        print " mx = " , ( mag['x'] )
+        mx = " mx = ;"+str(mag['x'])+";"
+        #file.write(" mx = " ( mag['x'] ))
+        print " my = " , ( mag['y'] )
+        my = " my = ;"+str(mag['y'])+";"
+        #file.write(" my = " ( mag['y'] ))
+        print " mz = " , ( mag['z'] )
+        mz = " mz = ;"+str(mag['z'])+";"
+        #file.write(" mz = " ( mag['z'] ))
+        print
+        st = str(datetime.datetime.now())+";"
+        file.write(st+ ax + ay + az + gx + gy + gz + mx + my + mz)
+        file.write("\n")
+
+        time.sleep(0.1)
+
+except KeyboardInterrupt:
+    file.close()
+    sys.exit()
+
+                            </pre>
+                            <p>In the terminal, navigate to the Desktop, then MPU9250 using the "cd" directive. Type "python program.py". Use the Ctrl+C keys to stop the program. The calibration period is initiated by pressing the button, and then releasing it to indicate the end of calibration and beginning of the study.</p>
                         </div>
                     </div>
                 </div>
