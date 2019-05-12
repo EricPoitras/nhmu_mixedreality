@@ -32,5 +32,14 @@ function btn_virtual_click(){
     router("virtualreality-setup");
 }
 function btn_tangible_click(){
-    router("about-home");
+    router("tan-setup");
+}
+function link_tan_setup_click(){
+    router("tan-setup");
+}
+function link_tan_program_click(){
+    router("tan-program");
+}
+function link_tan_loginteractions_click(){
+    router("tan-loginteractions");
 }

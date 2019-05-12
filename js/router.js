@@ -3,6 +3,7 @@ function router(view){
     /* Hide All Views */
     sections_about.classList.add("d-none");
     sections_virtualreality.classList.add("d-none");
+    sections_tangiblereality.classList.add("d-none");
     
     section_home.classList.add("d-none");
     section_overview.classList.add("d-none");
@@ -13,6 +14,9 @@ function router(view){
     section_vr_model.classList.add("d-none");
     section_vr_boundingbox.classList.add("d-none");
     section_vr_loginteractions.classList.add("d-none");
+    section_tan_setup.classList.add("d-none");
+    section_tan_program.classList.add("d-none");
+    section_tan_loginteractions.classList.add("d-none");
     
     switch(view){
         case "about-home":
@@ -50,6 +54,18 @@ function router(view){
         case "virtualreality-loginteractions":
             sections_virtualreality.classList.remove("d-none");
             section_vr_loginteractions.classList.remove("d-none");
+            break;
+        case "tan-setup":
+            sections_tangiblereality.classList.remove("d-none");
+            section_tan_setup.classList.remove("d-none");
+            break;
+        case "tan-program":
+            sections_tangiblereality.classList.remove("d-none");
+            section_tan_program.classList.remove("d-none");
+            break;
+        case "tan-loginteractions":
+            sections_tangiblereality.classList.remove("d-none");
+            section_tan_loginteractions.classList.remove("d-none");
             break;
     }
 }

@@ -26,6 +26,15 @@ console.log(link_vr_boundingbox);
 var link_vr_loginteractions = document.getElementById("link_vr_loginteractions");
 console.log(link_vr_loginteractions);
 
+var link_tan_setup = document.getElementById("link_tan_setup");
+console.log(link_tan_setup);
+
+var link_tan_program = document.getElementById("link_tan_program");
+console.log(link_tan_program);
+
+var link_tan_loginteractions = document.getElementById("link_tan_loginteractions");
+console.log(link_tan_loginteractions);
+
 /* Buttons */
 var btn_home = document.getElementById("btn_home");
 console.log(btn_home);
@@ -42,6 +51,9 @@ console.log(sections_about);
 
 var sections_virtualreality = document.getElementById("sections_virtualreality");
 console.log(sections_virtualreality);
+
+var sections_tangiblereality = document.getElementById("sections_tangiblereality");
+console.log(sections_tangiblereality);
 
 /* View Sections */
 var section_home = document.getElementById("section_home");
@@ -70,3 +82,12 @@ console.log(section_vr_boundingbox);
 
 var section_vr_loginteractions = document.getElementById("section_vr_loginteractions");
 console.log(section_vr_loginteractions);
+
+var section_tan_setup = document.getElementById("section_tan_setup");
+console.log(section_tan_setup);
+
+var section_tan_program = document.getElementById("section_tan_program");
+console.log(section_tan_program);
+
+var section_tan_loginteractions = document.getElementById("section_tan_loginteractions");
+console.log(section_tan_loginteractions);
