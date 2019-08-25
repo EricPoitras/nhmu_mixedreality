@@ -314,14 +314,16 @@
                                 <li>Select the script and choose Open in the Inspector panel. This will open Visual Studio to edit the script.</li>
                             </ol>
                            <h5>2. Defining Functions to Log Events | <a target="_blank" href="https://support.microsoft.com/en-us/help/816149/how-to-read-from-and-write-to-a-text-file-by-using-visual-c">Documentation</a></h5>
-                            <p>Add C# functions in the script to log user interaction events. The 'O' key may be used to indicate the start of the experiment, while the 'P' key is used to close the application at the end of an experiment.</p>
+                            <p>Add C# functions in the script to log user interaction events. The 'O' key may be used to indicate the start of the experiment, while the 'P' key is used to close the application at the end of an experiment. In order to ensure consistent frame rate per second, choose Edit > Project Settings. In Quality settings, set the VSync Count option to 'Dont Sync'.</p>
                             <pre style="background-color: black; color: white;">
 using System;
 using System.IO;
 using System.Text;
+using System.Media;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -342,20 +344,37 @@ public class NewBehaviourScript : MonoBehaviour
         return base.ToString();
     }
 
+    public int frame_count = 0;
+    public int trial_count = 0;
+    public int trial_duration = 11;
+    public int frame_rate = 10;
+    public int trial_condition = 0;
+    public string audio_clawing = Directory.GetCurrentDirectory().ToString() + @"\Assets\Clawing.wav";
+    public string audio_observing = Directory.GetCurrentDirectory().ToString() + @"\Assets\Observing.wav";
+    public SoundPlayer player_clawing = new SoundPlayer();
+    public SoundPlayer player_observing = new SoundPlayer();
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = frame_rate;
+        Time.captureFramerate = frame_rate;
         string directory = Directory.GetCurrentDirectory().ToString();
         string logName = @"\gameLog"+ DateTime.Now.ToString("MMMM dd") + ".txt";
         path = directory + logName;
         Debug.Log(message: GetLogEntry("New_Session_Event"));
         Debug.Log(message: path);
+        Debug.Log(message: audio_clawing);
+        Debug.Log(message: audio_observing);
+        this.player_clawing.SoundLocation = audio_clawing;
+        this.player_clawing.LoadAsync();
+        this.player_observing.SoundLocation = audio_observing;
+        this.player_observing.LoadAsync();
     }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(message: GetLogEntry("Frame_Update"));
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(message: GetLogEntry("Space_Key_Down"));
@@ -412,6 +431,39 @@ public class NewBehaviourScript : MonoBehaviour
             Debug.Log(message: GetLogEntry("P_Key_Up_End_Session"));
             Application.Quit();
         }
+        Debug.Log(message: GetLogEntry("Frame_Update"));
+        
+        if((frame_count/ frame_rate) >= trial_duration)
+        {
+            trial_count++;
+            frame_count = 0;
+            System.Random random = new System.Random();
+            trial_condition = random.Next(0, 2);
+            if (trial_condition == 0)
+            {
+                // Control Condition
+                //System.Media.SoundPlayer player = new System.Media.SoundPlayer(audio_observing);
+                //player.Play();
+                if (this.player_observing.IsLoadCompleted)
+                {
+                    this.player_observing.PlaySync();
+                }
+            }
+            else
+            {
+                // Treatment Condition
+                //System.Media.SoundPlayer player = new System.Media.SoundPlayer(audio_clawing);
+                //player.Play();
+                if (this.player_clawing.IsLoadCompleted)
+                {
+                    this.player_clawing.PlaySync();
+                }
+            }
+        }
+        else
+        {
+            frame_count++;
+        }
     }
 
     public string GetLogEntry(String value)
@@ -421,7 +473,13 @@ public class NewBehaviourScript : MonoBehaviour
         //StreamWriter writer = new StreamWriter(path, true);
         //writer.WriteLine("'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'");
         //writer.Close();
-        string input = "'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'Rot_Cam_X';'" + Camera.main.transform.rotation.x.ToString() + "';'Rot_Cam_Y';'" + Camera.main.transform.rotation.y.ToString() + "';'Rot_Cam_Z';'" + Camera.main.transform.rotation.z.ToString() + "';'Sca_Cam_X';'" + Camera.main.transform.localScale.x.ToString() + "';'Sca_Cam_Y';'" + Camera.main.transform.localScale.y.ToString() + "';'Sca_Cam_Z';'" + Camera.main.transform.localScale.z.ToString() + "';'";
+
+        Vector3 leftPositionE = InputTracking.GetLocalPosition(XRNode.LeftHand);
+        Quaternion leftRotationQ = InputTracking.GetLocalRotation(XRNode.LeftHand);
+        Vector3 rightPositionE = InputTracking.GetLocalPosition(XRNode.RightHand);
+        Quaternion rightRotationQ = InputTracking.GetLocalRotation(XRNode.RightHand);
+
+        string input = "'frame';'"+frame_count+"';'trial';'"+trial_count+"';'condition';'"+trial_condition+"';'timestamp';'" + DateTime.Now.ToString() + "';'Event_Label';'" + value + "';'Rotation';'Rot_X';'" + transform.rotation.eulerAngles.x.ToString() + "';'Rot_Y';'" + transform.rotation.eulerAngles.y.ToString() + "';'Rot_Z';'" + transform.rotation.eulerAngles.z.ToString() + "';'Scale';'Sca_X';'" + transform.localScale.x.ToString() + "';'Sca_Y';'" + transform.localScale.y.ToString() + "';'Sca_Z';'" + transform.localScale.z.ToString() + "';'Position';'Pos_X';'" + transform.position.x.ToString() + "';'Pos_Y';'" + transform.position.y.ToString() + "';'Pos_Z';'" + transform.position.z.ToString() + "';'Pos_Cam_X';'" + Camera.main.transform.position.x.ToString() + "';'Pos_Cam_Y';'" + Camera.main.transform.position.y.ToString() + "';'Pos_Cam_Z';'" + Camera.main.transform.position.z.ToString() + "';'Rot_Cam_X';'" + Camera.main.transform.rotation.x.ToString() + "';'Rot_Cam_Y';'" + Camera.main.transform.rotation.y.ToString() + "';'Rot_Cam_Z';'" + Camera.main.transform.rotation.z.ToString() + "';'Sca_Cam_X';'" + Camera.main.transform.localScale.x.ToString() + "';'Sca_Cam_Y';'" + Camera.main.transform.localScale.y.ToString() + "';'Sca_Cam_Z';'" + Camera.main.transform.localScale.z.ToString() + "';'RotationQuat';'Quaternion_W';'" + transform.rotation.w.ToString() + "';'Quaternion_X';'" + transform.rotation.x.ToString() + "';'Quaternion_Y';'" + transform.rotation.y.ToString() + "';'Quaternion_Z';'" + transform.rotation.z.ToString() + "';'Quaternion_Cam_W';'" + Camera.main.transform.rotation.w.ToString() + "';'Quaternion_Cam_X';'" + Camera.main.transform.rotation.x.ToString() + "';'Quaternion_Cam_Y';'" + Camera.main.transform.rotation.y.ToString() + "';'Quaternion_Cam_Z';'" + Camera.main.transform.rotation.z.ToString() + "';'Controllers';'Control_Left_Pos_X';'" + leftPositionE.x.ToString() + "';'Control_Left_Pos_Y';'" + leftPositionE.y.ToString() + "';'Control_Left_Pos_Z';'" + leftPositionE.z.ToString() + "';'Control_Right_Pos_X';'" + rightPositionE.x.ToString() + "';'Control_Right_Pos_Y';'" + rightPositionE.y.ToString() + "';'Control_Right_Pos_Z';'" + rightPositionE.z.ToString() + "';'Control_Left_Ori_Euler_X';'" + leftRotationQ.eulerAngles.x.ToString() + "';'Control_Left_Ori_Euler_Y';'" + leftRotationQ.eulerAngles.y.ToString() + "';'Control_Left_Ori_Euler_Z';'" + leftRotationQ.eulerAngles.z.ToString() + "';'Control_Right_Ori_Euler_X';'" + rightRotationQ.eulerAngles.x.ToString() + "';'Control_Right_Ori_Euler_Y';'" + rightRotationQ.eulerAngles.y.ToString() + "';'Control_Right_Ori_Euler_Z';'" + rightRotationQ.eulerAngles.z.ToString() + "';'Control_Left_Ori_Quart_W';'" + leftRotationQ.w.ToString() + "';'Control_Left_Ori_Quart_X';'" + leftRotationQ.x.ToString() + "';'Control_Left_Ori_Quart_Y';'" + leftRotationQ.y.ToString() + "';'Control_Left_Ori_Quart_Z';'" + leftRotationQ.z.ToString() + "';'Control_Right_Ori_Quart_W';'" + rightRotationQ.w.ToString() + "';'Control_Right_Ori_Quart_X';'" + rightRotationQ.x.ToString() + "';'Control_Right_Ori_Quart_Y';'" + rightRotationQ.y.ToString() + "';'Control_Right_Ori_Quart_Z';'" + rightRotationQ.z.ToString() + "';'" ;
         if (!File.Exists(path))
         {
             using (StreamWriter sw = File.CreateText(path))
